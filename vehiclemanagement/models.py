@@ -3,10 +3,10 @@ from django.utils.translation import gettext_lazy as _
 from .modelUser import User
    
 class Vehicle(models.Model):
-    type = models.CharField(max_length=255, null=True)
-    numberPlate = models.CharField(max_length=255)
+    type = models.CharField(max_length=30, blank=False)
+    numberPlate = models.CharField(max_length=7, unique=True)
     yearofmanufacture = models.DateField()  
-    capacity = models.IntegerField()
+    capacity = models.PositiveIntegerField()
     owner = models.ForeignKey(User,on_delete=models.CASCADE, related_name= 'cars')
     updatedAt = models.DateTimeField(auto_now=True)
 

@@ -2,11 +2,11 @@ from django.db import models
 from django.utils.translation import gettext_lazy as _
 
 class User(models.Model):
-    firstName = models.CharField(max_length= 255)
-    lastName = models.CharField(max_length= 255)
-    username = models.CharField(max_length= 255)
-    phoneNumber = models.IntegerField()
-    dateOfBirth = models.DateField()
+    firstName = models.CharField(max_length= 30,blank=False)
+    lastName = models.CharField(max_length= 30,blank=False)
+    username = models.CharField(max_length= 30,unique=True)
+    phoneNumber = models.IntegerField(max_length= 15, default="+254712345678")
+    dateOfBirth = models.DateField(blank=False)
 
     class Meta:
         verbose_name = _("User")
