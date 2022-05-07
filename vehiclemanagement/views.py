@@ -3,6 +3,8 @@ from rest_framework.response import Response
 from rest_framework import status
 from .serializers import VehicleSerializer,UserSerializer
 from .models import Vehicle,User
+from django.shortcuts import render
+from matplotlib.style import context
 
 class VehicleAPIView(APIView):
     """
@@ -96,3 +98,10 @@ class UserDetails(APIView):
         User.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
+def Index(request):
+    vehicles = Vehicle.objects.all()
+    #print(vehicle)
+    context={
+        "vehicles":vehicles,
+    }
+    return render(request,"index.html",context) 

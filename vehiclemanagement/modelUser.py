@@ -5,7 +5,7 @@ class User(models.Model):
     firstName = models.CharField(max_length= 30,blank=False)
     lastName = models.CharField(max_length= 30,blank=False)
     username = models.CharField(max_length= 30,unique=True)
-    phoneNumber = models.IntegerField(max_length= 15, default="+254712345678")
+    phoneNumber = models.PositiveIntegerField(default="+254712345678")
     dateOfBirth = models.DateField(blank=False)
 
     class Meta:
