@@ -6,6 +6,10 @@ from .models import Vehicle,User
 from django.shortcuts import render
 from matplotlib.style import context
 
+
+# def home(request):
+#     return HttpResponse("hi homie")
+
 class VehicleAPIView(APIView):
     """
     
